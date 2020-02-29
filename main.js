@@ -27,14 +27,10 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 console.log('Hello Nerd Matthew');
 //create function validateCred() 
+const validateCred = card => {
 
+let cardCopy = card.slice();
 
-for (let i=0; i<batch.length; ++i){
-  let cardCopy = batch[i].slice();
-
-
-//copies cardNumber
-// let cardCopy = invalid5.slice();
 
 console.log('Card number ' + cardCopy)
 //reverses array and removes first digit.
@@ -78,4 +74,6 @@ let sum = result.reduce(function(a,b){
 // console.log('The card number sum is ' + sum)
 
 sum % 10 === 0 ? console.log('The card number is VALID') : console.log('The card number is INVALID');
-}
+};
+
+validateCred(mystery3);
