@@ -83,14 +83,52 @@ let sum = result.reduce(function(a,b){
   }
 };
 
-//need to make variable to assign batch.  Right now this stores invalid card number into nested array.  Have to change batch number on push and on if statment.
-
-
+// create function invalidCardArr to return invalid card numbers.
 let invalidCardArr = [];
-for (let i=0; i<batch.length; ++i) 
-
-if (validateCred(batch[i]) === false) {
-  invalidCardArr.push(batch[i]);
+  const findInvalidCards = invalidCardArr => {
+    for (let i=0; i<batch.length; ++i) 
+      if (validateCred(batch[i]) === false) {
+        invalidCardArr.push(batch[i]);  
+        }
+  return invalidCardArr
 };
 
-console.log(invalidCardArr)
+// both of these print array of invalid card arrays.
+// console.log(findInvalidCards(invalidCardArr))
+// console.log(invalidCardArr)
+
+
+//create function idInvalidCardCompanies.
+//one parameter for a nested array of invalid numbers and returns an array of companies. 
+
+// console.log(invalidCards)
+
+let companies = [];
+let invalidCards = findInvalidCards(invalidCardArr)
+  
+const idInvalidCardCompanies = companies => {
+    
+    for (let i=0; i<invalidCards.length; ++i)
+
+    if (invalidCards[i][0] === 3) {
+        console.log('amex');
+      } else if 
+        (invalidCards[i][0] === 4) {
+        console.log('Visa');
+      } else if 
+        (invalidCards[i][0] === 5) {
+        console.log('Mastercard');
+      } else if 
+        (invalidCards[i][0] === 6) {
+        console.log('Discover');
+      } else  {
+        console.log('Company not found');
+    };
+  
+    return companies
+  };
+console.log(idInvalidCardCompanies(companies));
+// console.log(invalidCards)
+  
+
+      
