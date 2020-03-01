@@ -25,23 +25,24 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 // Add your functions below:
 
-console.log('Hello Nerd Matthew');
+console.log('Credit Card Checker');
 
 
 //create function validateCred() 
 const validateCred = card => {
 
- 
-  let cardCopy = card.slice();
- 
-  
+//copies card to avoid mutation.
+let cardCopy = card.slice();  
+
 // console.log('Card number ' + cardCopy)
+
 //reverses array and removes first digit.
 cardCopy.reverse();
+
 // console.log('Original card number reversed  ' + cardCopy);
 
 //starting with first digit.  Double every other one.  
-for (let i=1; i<cardCopy.length; ++i)
+for (let i=1; i<cardCopy.length; i++)
     cardCopy[i] = i % 2 === 0 ? cardCopy[i] * 1 : cardCopy[i] * 2;
 
 // console.log('Doubled odd indexes ' + cardCopy);
@@ -56,15 +57,15 @@ const subtract9 = [];
     } else {
       const single1 = subtract9.push([cardCopy[i]])
       // console.log(single1)
-}
+    };
 // console.log('Single digit (-9) ' + subtract9)
 
 //sum subtract9 array.
-//
+
 //copies subtract9 to cardSum and then converts string values to integers.
 let cardSum = subtract9.slice();
-var a = cardSum
-var result = cardSum.map(function (x) { 
+let a = cardSum
+let result = cardSum.map(function (x) { 
   return parseInt(x, 10); 
 });
 
@@ -93,42 +94,38 @@ let invalidCardArr = [];
   return invalidCardArr
 };
 
-// both of these print array of invalid card arrays.
-// console.log(findInvalidCards(invalidCardArr))
-// console.log(invalidCardArr)
-
-
 //create function idInvalidCardCompanies.
 //one parameter for a nested array of invalid numbers and returns an array of companies. 
 
-// console.log(invalidCards)
-
 let companies = [];
 let invalidCards = findInvalidCards(invalidCardArr)
-  
+let uniq = [];
+
 const idInvalidCardCompanies = companies => {
     
-    for (let i=0; i<invalidCards.length; ++i)
+    for (let i=0; i<invalidCards.length; i++)
 
     if (invalidCards[i][0] === 3) {
-        console.log('amex');
+        companies.push('Amex');
       } else if 
         (invalidCards[i][0] === 4) {
-        console.log('Visa');
+        companies.push('Visa');
       } else if 
         (invalidCards[i][0] === 5) {
-        console.log('Mastercard');
+        companies.push('Mastercard');
       } else if 
         (invalidCards[i][0] === 6) {
-        console.log('Discover');
-      } else  {
-        console.log('Company not found');
+        companies.push('Discover');
+      } else {
+        companies.push('Company not found');
     };
-  
-    return companies
+    // return companies
+    return uniq = [...new Set(companies)];
   };
+       
 console.log(idInvalidCardCompanies(companies));
-// console.log(invalidCards)
-  
+console.log('Invalid cards have been sent out by ' + idInvalidCardCompanies(companies));
+
+
 
       
