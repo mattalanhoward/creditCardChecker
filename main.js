@@ -30,9 +30,11 @@ console.log('Hello Nerd Matthew');
 
 //create function validateCred() 
 const validateCred = card => {
-let cardCopy = card.slice();
 
-
+ 
+  let cardCopy = card.slice();
+ 
+  
 // console.log('Card number ' + cardCopy)
 //reverses array and removes first digit.
 cardCopy.reverse();
@@ -83,9 +85,12 @@ let sum = result.reduce(function(a,b){
 
 //need to make variable to assign batch.  Right now this stores invalid card number into nested array.  Have to change batch number on push and on if statment.
 
+
 let invalidCardArr = [];
-if (validateCred(batch[6]) === false) {
-  invalidCardArr.push(batch[6]);
+for (let i=0; i<batch.length; ++i) 
+
+if (validateCred(batch[i]) === false) {
+  invalidCardArr.push(batch[i]);
 };
 
 console.log(invalidCardArr)
